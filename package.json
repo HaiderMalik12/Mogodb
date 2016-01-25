@@ -1,0 +1,14 @@
+{
+  "name": "userstest",
+  "version": "1.0.0",
+  "description": "I wana test the week1 lectures on this project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Haider Malik",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^2.1.4"
+  }
+}
