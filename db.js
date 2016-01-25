@@ -17,10 +17,15 @@ MongoClient.connect(url,function(err,db){
         //--------------documents----------------------
         var users=db.collection('users');
         var jsonWithArray=db.collection('jsonWithArray');
+        var subdcouments=db.collection('customers');
 
 
+
+
+ //----------------------------------Expanded Users -------------------
          //without expanded users
-        var haiderMalik1=({
+        function expandedUsersExample(){
+        	var haiderMalik1=({
         	name:'Haider Malik',
         	city:'FSD'
         });
@@ -48,10 +53,11 @@ MongoClient.connect(url,function(err,db){
          		console.log('user saved to document: '+result);
          	}
          });
+        }
       
-      //------------------------------------------------------------
       //----------------jsonWithArray-----------------------------
-       var jsonWithArray_d={
+        function jsonWithArrayExample(){
+        	 var jsonWithArray_d={
          fuits:['Apple','Peach','Mango','Banans','Squash']
        };
        jsonWithArray.insert(jsonWithArray_d,function(err,result){
@@ -63,6 +69,34 @@ MongoClient.connect(url,function(err,db){
        		console.log('Data saved successfuly in jsonWithArray '+result);
        	}
        });
+
+        }
+       //------------------subdcouments ---------------------
+        
+         function subDocumentExamples(){
+         	  var customer={
+         
+         name:'Haider Malik',
+         address:{
+         city:'Palo Alto',
+         state:'California',
+         zipCode:94305,
+         street:'23 Elm Drive'
+     }
+        };
+        subdcouments.insert(customer,function(err,result){
+         
+         if(err){
+         	console.log('Unable to add subdcoument '+err);
+         }else{
+         	console.log('SubDocument is saved successfuly '+result);
+         	  }
+        });
+         }
+
+         //-----------------------------Calling FUnction -------------------
+          subDocumentExamples();
+
 
 		//db.close();
 	}
