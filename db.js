@@ -14,7 +14,10 @@ MongoClient.connect(url,function(err,db){
 	else{
 		console.log('Connection established to '+url);
 
+        //--------------documents----------------------
         var users=db.collection('users');
+        var jsonWithArray=db.collection('jsonWithArray');
+
 
          //without expanded users
         var haiderMalik1=({
@@ -45,8 +48,21 @@ MongoClient.connect(url,function(err,db){
          		console.log('user saved to document: '+result);
          	}
          });
-
-
+      
+      //------------------------------------------------------------
+      //----------------jsonWithArray-----------------------------
+       var jsonWithArray_d={
+         fuits:['Apple','Peach','Mango','Banans','Squash']
+       };
+       jsonWithArray.insert(jsonWithArray_d,function(err,result){
+       	if(err)
+       	{
+       		console.log('Unable to sabe jsonWithArray '+err);
+       	}
+       	else{
+       		console.log('Data saved successfuly in jsonWithArray '+result);
+       	}
+       });
 
 		//db.close();
 	}
