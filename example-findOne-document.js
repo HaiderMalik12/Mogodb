@@ -1,6 +1,7 @@
 var mongodb=require('mongodb');
 var MongoClient=mongodb.MongoClient;
 var url="mongodb://localhost:27017/users";
+
 MongoClient.connect(url,function(err,db){
  if(err){
  	console.log('Unable to connect the Db');
@@ -15,6 +16,22 @@ MongoClient.connect(url,function(err,db){
  	},function(err){
      console.log('Unable to find the user'+err);
  	});
- }
+ 
+  //----------------findall -----------------------------------------
+  //find where name =Haider Malik
+  //Project the columns[name,favt_song];
 
+  users.find({name:"Haider Malik"},{name:true,favt_song:true}).toArray(function(err,users){
+  if(err) console.log('Unable to find the users'+err);
+  
+  	else if(users.length){
+
+  	console.log(users);
+  	}
+  
+  else{
+  	 console.log('No document(s) found with defined "find" criteria!');
+  }
+  });
+}
 });

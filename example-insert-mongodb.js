@@ -10,7 +10,7 @@ MongoClient.connect(url,function(err,db){
    }else{
        var fruits=db.collection('fruit');
        var orange={
-         name:'Apple',
+            name:'Apple',
             color:'red',
             shape:'round'
 
