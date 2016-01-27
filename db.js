@@ -22,6 +22,7 @@ MongoClient.connect(url,function(err,db){
 
 
 
+
  //----------------------------------Expanded Users -------------------
          //without expanded users
         function expandedUsersExample(){
@@ -57,6 +58,7 @@ MongoClient.connect(url,function(err,db){
       
       //----------------jsonWithArray-----------------------------
         function jsonWithArrayExample(){
+          
         	 var jsonWithArray_d={
          fuits:['Apple','Peach','Mango','Banans','Squash']
        };
