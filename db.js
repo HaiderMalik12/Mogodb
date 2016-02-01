@@ -46,7 +46,15 @@ MongoClient.connect(url,function(err,db){
           favt_color:'White,Blue,Black'
         });
 
-         users.insert([haiderMalik1,haiderMalik_exp,haiderMalik_exp1],function(err,result){
+            var haiderMalik_exp2={
+                name:'Haider Malik',
+                city:'FSD',
+                favt_song:'Illuminate',
+                favt_colot:'White',
+                eye_color:'brown'
+            };
+
+         users.insert([haiderMalik1,haiderMalik_exp,haiderMalik_exp1,haiderMalik_exp2],function(err,result){
          	if(err){
          		console.log('Unable to save the users '+err);
          	}
@@ -62,7 +70,11 @@ MongoClient.connect(url,function(err,db){
         	 var jsonWithArray_d={
          fuits:['Apple','Peach','Mango','Banans','Squash']
        };
-       jsonWithArray.insert(jsonWithArray_d,function(err,result){
+            var jsonWith2Arrays={
+                fruit:['Apple','peach','Mangor'],
+                hobbies:['Coding','Learning New Technologies','Doing Software Developemnt']
+            }
+       jsonWithArray.insert([jsonWithArray_d,jsonWith2Arrays],function(err,result){
        	if(err)
        	{
        		console.log('Unable to sabe jsonWithArray '+err);
@@ -85,8 +97,18 @@ MongoClient.connect(url,function(err,db){
          zipCode:94305,
          street:'23 Elm Drive'
      }
+
         };
-        subdcouments.insert(customer,function(err,result){
+             var customer1={
+                 name:'Haider Malik',
+                 address:{
+                     city:'LHR',
+                     state:'Palo Alto',
+                     zipCode:38000,
+                     street:'Park Road Chek Shehzad'
+                 }
+             };
+        subdcouments.insert([customer,customer1],function(err,result){
          
          if(err){
          	console.log('Unable to add subdcoument '+err);
@@ -97,8 +119,9 @@ MongoClient.connect(url,function(err,db){
          }
 
          //-----------------------------Calling FUnction -------------------
-          subDocumentExamples();
-
+         //expandedUsersExample();
+         //  subDocumentExamples();
+        jsonWithArrayExample();
 
 		//db.close();
 	}
