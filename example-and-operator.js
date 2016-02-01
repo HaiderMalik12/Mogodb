@@ -12,25 +12,26 @@ MongoClient.connect('mongodb://localhost:27017/users', function (err, db) {
         party.find({
             $and: [
                 {
-                id: 1
-               },
+                    id: 1,
+                    city:'FSD'
+                },
                 {
-               name:'Haider Malik'
-            }
+                    name: 'Haider Malik'
+                }
             ]
-        }).toArray(function(err,parties){
-           if(err){
-               console.log('Unable to find the Parties');
-           }
-            else{
+        }).toArray(function (err, parties) {
+            if (err) {
+                console.log('Unable to find the Parties');
+            }
+            else {
 
-               if(parties.length){
-                   console.log(parties);
-               }
-               else{
-                   console.log('No Party found');
-               }
-           }
+                if (parties.length) {
+                    console.log(parties);
+                }
+                else {
+                    console.log('No Party found');
+                }
+            }
         });
     }
 });
