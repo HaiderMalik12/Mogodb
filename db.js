@@ -53,8 +53,16 @@ MongoClient.connect(url,function(err,db){
                 favt_colot:'White',
                 eye_color:'brown'
             };
+            var haiderMalik_exp3={
+                name:'Haider',
+                city:'LHR',
+                favt_song:'Martin Garix Poison',
+                favt_color:'Black',
+                eye_color:'Blue',
+                PhoneModel:'Moto X'
+            }
 
-         users.insert([haiderMalik1,haiderMalik_exp,haiderMalik_exp1,haiderMalik_exp2],function(err,result){
+         users.insert([haiderMalik1,haiderMalik_exp,haiderMalik_exp1,haiderMalik_exp2,haiderMalik_exp3],function(err,result){
          	if(err){
          		console.log('Unable to save the users '+err);
          	}
@@ -74,7 +82,12 @@ MongoClient.connect(url,function(err,db){
                 fruit:['Apple','peach','Mangor'],
                 hobbies:['Coding','Learning New Technologies','Doing Software Developemnt']
             }
-       jsonWithArray.insert([jsonWithArray_d,jsonWith2Arrays],function(err,result){
+            var jsonWithArray3_d={
+                fruit:['Oranges','Apple'],
+                hobbies:['Listen SOng','Music','Coding','develpment'],
+                repostory:['w3-school-javascript','w3school-angular']
+            }
+       jsonWithArray.insert([jsonWithArray_d,jsonWith2Arrays,jsonWithArray3_d],function(err,result){
        	if(err)
        	{
        		console.log('Unable to sabe jsonWithArray '+err);
@@ -108,7 +121,15 @@ MongoClient.connect(url,function(err,db){
                      street:'Park Road Chek Shehzad'
                  }
              };
-        subdcouments.insert([customer,customer1],function(err,result){
+        var customer2={
+            name:'Ghayuur Abbaas',
+            address:{
+                city:'LHR',
+                state:'Pakistan',
+                zipCode:'37000',
+                street:'Park ROad Check Shehzad'
+            }
+        }; subdcouments.insert([customer,customer1,customer2],function(err,result){
          
          if(err){
          	console.log('Unable to add subdcoument '+err);
@@ -120,8 +141,8 @@ MongoClient.connect(url,function(err,db){
 
          //-----------------------------Calling FUnction -------------------
          //expandedUsersExample();
-         //  subDocumentExamples();
-        jsonWithArrayExample();
+        //  subDocumentExamples();
+       jsonWithArrayExample();
 
 		//db.close();
 	}
